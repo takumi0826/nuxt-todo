@@ -1,0 +1,32 @@
+@import "variable";
+
+// line-height計算
+@mixin font-height($font-size, $Ps-height) {
+  font-size: ($font-size / 10) + rem;
+  line-height: ($Ps-height / $font-size);
+}
+//letter-spacing計算
+@mixin letter-space($tracking) {
+  letter-spacing: ($tracking / 1000) + em;
+}
+//vw計算(フォントサイズ)
+@mixin fontsizeVw($font-size) {
+  $window-width: 320; // 画面幅を設定する
+  font-size: ($font-size / $window-width) * 100 + vw;
+}
+
+@mixin pc {
+  @media screen and (max-width: ($pc)) {
+    @content;
+  }
+}
+@mixin tab {
+  @media screen and (max-width: ($tab)) {
+    @content;
+  }
+}
+@mixin sp {
+  @media screen and (max-width: ($sp)) {
+    @content;
+  }
+}

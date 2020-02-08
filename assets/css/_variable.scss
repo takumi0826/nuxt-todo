@@ -1,0 +1,37 @@
+//ブレイクポイント
+$pc: 1024px; // PC
+$tab: 768px; // タブレット
+$sp: 480px; // スマホ
+
+//テーマの色
+$bg: #fafafa; //背景
+$base: #006192; //ベースカラー
+$sub: #9eb3bd; //サブカラー
+$accent: #be8b09; //アクセントカラー
+
+//tableのthの背景色
+$th-bgcolor: #ac628c;
+//tableのthの文字色
+$th-color: #fff;
+//tableのborderの色
+$table-border: #eee;
+
+//ボタンのwidth
+$btn-width: 280px;
+
+//border-bottomの色
+$border-bottom: #888;
+
+// リンクの色
+$link: #1a7497;
+
+//フォントファミリー
+$fontfamily: "roboto"; //デフォルトフォント
+$fontfamily-en: "roboto"; //英語用フォントなど
+
+//最大コンテンツ幅
+$container: 960px;
+
+//デフォルトのフォントサイズ(1rem = 10px)
+$fontsize: 1.6rem; //pc
+$fontsize-sp: 1.4rem; //sp
