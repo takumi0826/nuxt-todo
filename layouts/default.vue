@@ -1,22 +1,32 @@
 <template>
   <div>
     <Header />
-    <transition name="fade" mode="out-in">
-      <nuxt />
-    </transition>
+    <main>
+      <transition name="fade" mode="out-in">
+        <nuxt />
+      </transition>
+    </main>
   </div>
 </template>
 
 <script>
-import Header from "~/components/Header.vue"; // コンポーネント読み込み
+import Header from "~/components/Header.vue";
 export default {
   components: {
-    Header // コンポーネントの登録
+    Header
   }
 };
 </script>
 
 <style lang="scss">
+@import "~/assets/css/_variable";
+@import "~/assets/css/_mixin";
+main {
+  padding: 100px 0;
+  @include sp {
+    padding: 40px 20px;
+  }
+}
 .fade-move {
   transition: all 0.3s;
 }

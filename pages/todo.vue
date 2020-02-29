@@ -11,6 +11,9 @@
             @keyup.enter="add"
           />
         </div>
+        <div class="add-btn-wrap">
+          <button class="add-btn" @click="add">追加する</button>
+        </div>
         <ul class="todo__list">
           <li
             class="todo__list-item"
@@ -24,7 +27,7 @@
             </span>
           </li>
         </ul>
-        <div class="add-btn" @click="focus">
+        <div class="focus-btn" @click="focus">
           <fa-icon icon="plus-circle" size="3x" />
         </div>
       </div>
@@ -40,7 +43,8 @@ export default {
       db: null,
       todosData: null,
       text: "",
-      lists: {}
+      lists: {},
+      enable: false
     };
   },
   created() {
@@ -75,7 +79,7 @@ export default {
       }
     },
     focus() {
-      document.getElementById("addTask").focus();
+      document.querySelector("#addTask").focus();
     }
   }
 };
@@ -99,12 +103,8 @@ export default {
   transition: all 0.3s;
 }
 .container {
-  padding: 60px 0;
   max-width: 600px;
   margin: auto;
-  @include sp {
-    padding: 40px 20px;
-  }
 }
 .todo {
   padding: 40px 20px;
@@ -156,16 +156,27 @@ export default {
   }
 }
 
-.add-btn {
+.focus-btn {
   position: absolute;
   bottom: 0;
   right: 0;
   background-color: #fff;
   color: #189200;
   transform: translate(50%, 50%);
-  @include sp {
-    bottom: 20px;
-    right: 20px;
+}
+.add-btn-wrap {
+  text-align: right;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  .add-btn {
+    display: inline-block;
+    background-color: #006192;
+    color: #fff;
+    text-align: center;
+    padding: 8px 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
   }
 }
 .delete-btn {

@@ -2,14 +2,9 @@
   <div>
     <div class="container">
       <div class="news">
-        <h2 class="heading-2">Qiita　記事取得</h2>
+        <h2 class="heading-2">Qiita 記事取得</h2>
         <div class="search">
-          <input
-            type="text"
-            placeholder="文字を入力"
-            class="search__input"
-            v-model="keyword"
-          />
+          <input type="text" placeholder="文字を入力" class="search__input" v-model="keyword" />
           <span class="search__btn" @click="search">
             <fa-icon icon="search" size="1x" />検索
           </span>
@@ -17,9 +12,7 @@
         <ul class="news__list">
           <li class="news__list-item" v-for="(getnews, key) in news" :key="key">
             <span class="news__likes">{{ getnews.likes_count }}いいね</span>
-            <a :href="getnews.url" target="_blank" rel="noopener noreferrer">
-              {{ getnews.title }}
-            </a>
+            <a :href="getnews.url" target="_blank" rel="noopener noreferrer">{{ getnews.title }}</a>
           </li>
         </ul>
       </div>
@@ -68,12 +61,8 @@ export default {
 @import "~/assets/css/_variable";
 @import "~/assets/css/_mixin";
 .container {
-  padding: 60px 0;
   max-width: 600px;
   margin: auto;
-  @include sp {
-    padding: 40px 20px;
-  }
 }
 .heading-2 {
   text-align: center;

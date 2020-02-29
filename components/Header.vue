@@ -1,7 +1,9 @@
 <template>
   <header class="header">
     <div class="header__inner">
-      <h1 class="header__title">Nuxt Portfolio</h1>
+      <h1 class="header__title">
+        <nuxt-link to="/">Nuxt Portfolio</nuxt-link>
+      </h1>
       <nav class="gnav" :class="{ open: isMenuActive }">
         <ul class="gnav__list">
           <li class="gnav__list-item">
@@ -9,12 +11,6 @@
           </li>
           <li class="gnav__list-item">
             <nuxt-link to="/news">NEWS</nuxt-link>
-          </li>
-          <li class="gnav__list-item">
-            <nuxt-link to="/"></nuxt-link>
-          </li>
-          <li class="gnav__list-item">
-            <nuxt-link to="/"></nuxt-link>
           </li>
         </ul>
         <div class="burger" @click="toggle" :class="{ open: isMenuActive }">
@@ -44,8 +40,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/css/_variable";
-@import "@/assets/css/_mixin";
+@import "~/assets/css/_variable";
+@import "~/assets/css/_mixin";
 .header {
   background-color: #006192;
   &__inner {
@@ -71,6 +67,7 @@ export default {
         height: 100%;
         background-color: rgba(#006192, 0.9);
         padding: 82px 20px 40px;
+        z-index: 100;
       }
       .gnav__list-item {
         text-align: center;
@@ -99,6 +96,7 @@ export default {
         width: 50px;
         height: 50px;
         position: relative;
+        z-index: 100;
         &.open {
           span {
             &:nth-child(1) {
