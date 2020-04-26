@@ -2,16 +2,26 @@
   <header class="header">
     <div class="header__inner">
       <h1 class="header__title">
-        <nuxt-link to="/">Nuxt Portfolio</nuxt-link>
+        <nuxt-link to>Nuxt Portfolio</nuxt-link>
       </h1>
       <nav class="gnav" :class="{ open: isMenuActive }">
         <ul class="gnav__list">
-          <li class="gnav__list-item">
-            <nuxt-link to="/todo">TODO</nuxt-link>
-          </li>
-          <li class="gnav__list-item">
-            <nuxt-link to="/news">NEWS</nuxt-link>
-          </li>
+          <template v-if="loginUser === null">
+            <li class="gnav__list-item">
+              <button @click="login">ログイン</button>
+            </li>
+          </template>
+          <template v-else-if="loginUser">
+            <li class="gnav__list-item">
+              <nuxt-link to="/todo">TODO</nuxt-link>
+            </li>
+            <li class="gnav__list-item">
+              <nuxt-link to="/news">NEWS</nuxt-link>
+            </li>
+            <li class="gnav__list-item">
+              <button @click="logout">ログアウト</button>
+            </li>
+          </template>
         </ul>
         <div class="burger" @click="toggle" :class="{ open: isMenuActive }">
           <span></span>
@@ -24,17 +34,21 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+import { mapActions, mapState } from "vuex";
 export default {
   data() {
     return {
       isMenuActive: false
     };
   },
+  computed: {
+    ...mapState(["loginUser"])
+  },
   methods: {
     toggle() {
       this.isMenuActive = !this.isMenuActive;
-    }
+    },
+    ...mapActions(["login", "logout"])
   }
 };
 </script>

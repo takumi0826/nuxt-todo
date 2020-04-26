@@ -1,21 +1,29 @@
+export const strict = false;
+import firebase from "firebase";
+
 export const state = () => ({
-  user: null
-})
-
+  loginUser: null
+});
 export const mutations = {
-  setUser (state, payload) {
-    state.user = payload
+  setUser(state, user) {
+    state.loginUser = user;
+  },
+  deleteUser(state) {
+    state.loginUser = null;
   }
-}
-
+};
 export const actions = {
-  setUser ({ commit }, payload) {
-    commit('setUser', payload)
+  setUser({ commit }, user) {
+    commit("setUser", user);
+  },
+  deleteUser({ commit }) {
+    commit("deleteUser");
+  },
+  login() {
+    const google_auth_provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithRedirect(google_auth_provider);
+  },
+  logout() {
+    firebase.auth().signOut();
   }
-}
-
-export const getters = {
-  isAuthenticated (state) {
-    return !!state.user
-  }
-}
+};
